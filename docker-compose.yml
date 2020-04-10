@@ -1,0 +1,14 @@
+version: '3'
+services:
+  consul-external:
+    image: consul-external
+    container_name: consul-external
+    environment:
+      - SPRING_CLOUD_CONSUL_HOST=host.docker.internal
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      #- SPRING_CLOUD_CONSUL_DISCOVERY_PREFER-IP-ADDRESS=true
+      #- SPRING_CLOUD_CONSUL_DISCOVERY_IP-ADDRESS=127.0.0.1
+      - SPRING_CLOUD_CONSUL_DISCOVERY_HOSTNAME=localhost
+      - SPRING_CLOUD_CONSUL_DISCOVERY_PORT=8090
+    ports:
+      - 8090:8080
